@@ -1,0 +1,48 @@
+
+{
+    "name": "close-unmodified-editors",
+    "displayName": "Close Unmodified Editors",
+    "description": "Closes all saved or unchanged editors, then immediately reopens all files that have been added/modified/moved/renamed in the active Git branch.",
+    "version": "0.0.1",
+    "publisher": "NerdyDeedsLLC",
+    "license": "SEE LICENSE IN LICENSE.txt",
+    "engines": {
+        "vscode": "^1.95.0"
+    },
+    "categories": [
+        "Other"
+    ],
+    "activationEvents": [],
+    "main": "./extension.js",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/NerdyDeedsLLC/vscode-close-unmodified-editors"},
+    "contributes": {
+        "commands": [
+            {
+                "command": "close-unmodified-editors.closeAllButModifiedFiles",
+                "title": "Close Unmodified Editors"
+            }
+        ],
+        "menus": {
+            "editor/context": [
+                {
+                    "command": "close-unmodified-editors.closeAllButModifiedFiles",
+                    "when": "editorHasDocument",
+                    "group": "navigation",
+                    "title": "Close Unmodified Editors"
+                }
+            ]
+        },
+        "keybindings": [
+            {
+                "command": "close-unmodified-editors.closeAllButModifiedFiles",
+                "key": "cmd+alt+shift+w",
+                "when": "editorTextFocus",
+                "mac": "cmd+alt+shift+w",
+                "win": "ctrl+alt+shift+w",
+                "linux": "ctrl+alt+shift+w"
+            }
+        ]
+    }
+}
